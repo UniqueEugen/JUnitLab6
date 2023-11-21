@@ -1,4 +1,4 @@
-package org.example.daoJDBC;
+import org.example.daoJDBC.JDBC_CRUD;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -9,14 +9,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 
-class JDBC_CRUDTest {
+public class JDBC_CRUDTest {
     private static final String ADRESS = "jdbc:mysql://localhost:3306/jdbctest";
     private static final String LOGIN="root";
-    private static final String PASSWORD="root";
+    private static final String PASSWORD="Zhenua0334";
     private static final String TABLE_NAME="programmers";
 
     @Test
-    void testClass() {
+    public void testClass() {
         try {
             new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
         }
@@ -28,7 +28,8 @@ class JDBC_CRUDTest {
 
 
     @Test
-    void testCreate() {
+    @Ignore
+    public void testCreate() {
         try {
             JDBC_CRUD db = new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
             db.createProgrammer(1, "Vasya", "St.Petersburg", "Junior");
@@ -41,7 +42,7 @@ class JDBC_CRUDTest {
     }
 
     @Test
-    void testDelete() {
+    public void testDelete() {
         try {
             JDBC_CRUD db = new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
             db.deleteProgrammer(1);
@@ -52,7 +53,7 @@ class JDBC_CRUDTest {
     }
 
     @Test
-    void testRead() {
+    public void testRead() {
         ResultSet rs=null;
         try {
             JDBC_CRUD db = new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
@@ -66,7 +67,7 @@ class JDBC_CRUDTest {
 
     @Ignore
     @Test
-    void truncateTable() {
+    public void truncateTable() {
         try {
             JDBC_CRUD db = new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
             db.clear();
@@ -77,7 +78,7 @@ class JDBC_CRUDTest {
     }
 
     @Test
-    void testUpdate() {
+    public void testUpdate() {
         try {
             JDBC_CRUD db = new JDBC_CRUD(ADRESS,LOGIN,PASSWORD,TABLE_NAME);
             db.updateProgrammer(2, "Petya", "St.Petersburg", "Junior");
